@@ -1,5 +1,5 @@
 <template>
-  <form class="addlist" @submit.prevent="addList">
+  <form :class="classList" @submit.prevent="addList">
     <input v-model="title"
       type="text"
       class="text-input"
@@ -21,6 +21,15 @@ export default {
       isEditing: false,
     }
   },
+  computed: {
+    classList() {
+      const classList = ['addlist']
+      if (this.isEditing) {
+        classList.push('active')
+      }
+      return classList
+    },
+  },
   methods: {
     addList: function() {
       this.$store.dispatch('addlist', { title: this.title })
@@ -32,6 +41,6 @@ export default {
     finishEditing: function() {
       this.isEditing = false
     },
-  }
+  },
 }
 </script>
