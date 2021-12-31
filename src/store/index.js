@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 const savedLists = localStorage.getItem('trello-lists')
 
-export default new Vuex.Store({
+const store =  new Vuex.Store({
   state: {
     lists: savedLists ? JSON.parse(savedLists): [
       {
