@@ -7,12 +7,13 @@
       @focusin="startEditing"
       @focusout="finishEditing"
     >
-    <button type="submit" class="add-button" v-if="isEditing || titleExists">
+    <button type="submit"
+            class="add-button"
+            v-if="isEditing || titleExists">
       Add
     </button>
   </form>
 </template>
-
 <script>
 export default {
   data: function() {
@@ -42,11 +43,11 @@ export default {
       this.title = ''
     },
     startEditing: function() {
-    this.isEditing = true
+      this.isEditing = true
     },
     finishEditing: function() {
       this.isEditing = false
     },
-  },
+  }
 }
 </script>

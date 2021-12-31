@@ -13,7 +13,6 @@
         />
         <list-add />
       </div>
-      <list-add />
     </main>
   </div>
 </template>
