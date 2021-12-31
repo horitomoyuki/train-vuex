@@ -4,6 +4,8 @@
       type="text"
       class="text-input"
       placeholder="Add new list"
+      @focusin="startEditing"
+      @focusout="finishEditing"
     >
     <button type="submit" class="add-button">
       Add
@@ -16,12 +18,19 @@ export default {
   data: function() {
     return {
       title: '',
+      isEditing: false,
     }
   },
   methods: {
     addList: function() {
       this.$store.dispatch('addlist', { title: this.title })
       this.title = ''
+    },
+    startEditing: function() {
+    this.isEditing = true
+    },
+    finishEditing: function() {
+      this.isEditing = false
     },
   }
 }
